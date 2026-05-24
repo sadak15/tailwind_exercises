@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transform Your Business</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style>
+    /* Base typography */
+    * { font-family: 'DM Sans', sans-serif; }
+    h1, h2, .logo { font-family: 'Sora', sans-serif; }
+
+    html { scroll-behavior: smooth; }
+
+    /* Hero gradient */
+    .hero-gradient {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 60%, #6d28d9 100%);
+    }
+
+    /* Card hover lift */
+    .card-hover {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(79, 70, 229, 0.12);
+    }
+
+    /* Featured pricing card glow */
+    .plan-featured {
+      box-shadow: 0 0 0 2px #4f46e5, 0 20px 40px rgba(79, 70, 229, 0.18);
+    }
+
+    /* Fade-up entrance animation */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up  { animation: fadeUp 0.7s ease both; }
+    .delay-1  { animation-delay: 0.10s; }
+    .delay-2  { animation-delay: 0.22s; }
+    .delay-3  { animation-delay: 0.34s; }
+
+    /* Input/textarea focus ring */
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+  <!-- ─────────────────────────────────────────
+       NAVBAR
+  ───────────────────────────────────────── -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">
+    <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+
+      <a href="#" class="logo text-indigo-600 font-bold text-xl tracking-tight">
+        Sadak
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+        <li><a href="#features"     class="hover:text-indigo-600 transition-colors">Features</a></li>
+        <li><a href="#testimonials" class="hover:text-indigo-600 transition-colors">Testimonials</a></li>
+        <li><a href="#pricing"      class="hover:text-indigo-600 transition-colors">Pricing</a></li>
+        <li><a href="#contact"      class="hover:text-indigo-600 transition-colors">Contact</a></li>
+      </ul>
+
+      <!-- Mobile hamburger -->
+      <button
+        onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+        class="md:hidden p-2 rounded-lg text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 transition"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white">
+      <ul class="flex flex-col px-6 py-4 gap-4 text-sm font-medium text-gray-700">
+        <li><a href="#features"     onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="hover:text-indigo-600">Features</a></li>
+        <li><a href="#testimonials" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="hover:text-indigo-600">Testimonials</a></li>
+        <li><a href="#pricing"      onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="hover:text-indigo-600">Pricing</a></li>
+        <li><a href="#contact"      onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="hover:text-indigo-600">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+  <!-- ─────────────────────────────────────────
+       HERO
+  ───────────────────────────────────────── -->
+  <section class="hero-gradient text-white text-center px-6 py-28 md:py-36">
+    <div class="max-w-3xl mx-auto fade-up">
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight mb-5">
+        Transform Your Business
+      </h1>
+      <p class="text-white/80 text-lg md:text-xl mb-10 max-w-xl mx-auto">
+        Elevate your online presence with our cutting-edge solutions
+      </p>
+      <a href="#pricing"
+         class="inline-block bg-white text-indigo-600 font-semibold px-8 py-3.5 rounded-full
+                shadow-lg hover:bg-indigo-50 transition-colors duration-200">
+        Get Started
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────
+       FEATURES
+  ───────────────────────────────────────── -->
+  <section id="features" class="bg-gray-50 py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-14">Why Choose Us</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+          <div class="text-3xl mb-4">⚡</div>
+          <h3 class="font-bold text-lg mb-2">Lightning Fast</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            Experience blazing fast performance with our optimized solutions.
+          </p>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+          <div class="text-3xl mb-4">🛡️</div>
+          <h3 class="font-bold text-lg mb-2">Secure</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            Your data is protected with enterprise-grade security.
+          </p>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+          <div class="text-3xl mb-4">💎</div>
+          <h3 class="font-bold text-lg mb-2">Premium Quality</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            Unmatched quality that sets us apart from the competition.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────
+       TESTIMONIALS
+  ───────────────────────────────────────── -->
+  <section id="testimonials" class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-14">What Our Clients Say</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div class="card-hover bg-white border border-gray-100 shadow-sm rounded-2xl p-8">
+          <p class="text-gray-600 text-sm leading-relaxed mb-6">
+            "The best decision we made for our business. The results have been incredible."
+          </p>
+          <div class="flex items-center gap-4">
+            <img src="https://i.pravatar.cc/48?img=12" alt="Ahmed Ali"
+                 class="w-12 h-12 rounded-full object-cover ring-2 ring-indigo-100" />
+            <div>
+              <p class="font-semibold text-sm">Ahmed Ali </p>
+              <p class="text-gray-400 text-xs">CEO, TechCorp</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-hover bg-white border border-gray-100 shadow-sm rounded-2xl p-8">
+          <p class="text-gray-600 text-sm leading-relaxed mb-6">
+            "Outstanding service and support. They truly understand our needs."
+          </p>
+          <div class="flex items-center gap-4">
+            <img src="https://i.pravatar.cc/48?img=47" alt="Sarah Johnson"
+                 class="w-12 h-12 rounded-full object-cover ring-2 ring-indigo-100" />
+            <div>
+              <p class="font-semibold text-sm">Sarah Johnson</p>
+              <p class="text-gray-400 text-xs">Founder, Design Studio</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────
+       PRICING
+  ───────────────────────────────────────── -->
+  <section id="pricing" class="bg-gray-50 py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+        Simple, Transparent Pricing
+      </h2>
+      <p class="text-center text-gray-500 mb-14 text-sm">No hidden fees. Cancel anytime.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+
+        <!-- Starter -->
+        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col">
+          <h3 class="font-bold text-xl mb-2">Starter</h3>
+          <div class="mb-6">
+            <span class="text-4xl font-extrabold">$29</span>
+            <span class="text-gray-400 text-sm">/mo</span>
+          </div>
+          <ul class="flex flex-col gap-3 mb-8 flex-1">
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <span class="text-indigo-500 font-bold">✓</span> Basic Features
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <span class="text-indigo-500 font-bold">✓</span> 5 Projects
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <span class="text-indigo-500 font-bold">✓</span> Basic Support
+            </li>
+          </ul>
+          <a href="#contact"
+             class="block text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
+                    py-3 rounded-xl transition-colors duration-200">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Professional (featured) -->
+        <div class="plan-featured card-hover bg-white rounded-2xl p-8 border-2 border-indigo-600 flex flex-col relative">
+          <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-indigo-600 text-white
+                       text-xs font-semibold px-4 py-1 rounded-full whitespace-nowrap">
+            Most Popular
+          </span>
+          <h3 class="font-bold text-xl mb-2">Professional</h3>
+          <div class="mb-6">
+            <span class="text-4xl font-extrabold">$99</span>
+            <span class="text-gray-400 text-sm">/mo</span>
+          </div>
+          <ul class="flex flex-col gap-3 mb-8 flex-1">
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <span class="text-indigo-500 font-bold">✓</span> Advanced Features
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <span class="text-indigo-500 font-bold">✓</span> Unlimited Projects
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <span class="text-indigo-500 font-bold">✓</span> Priority Support
+            </li>
+          </ul>
+          <a href="#contact"
+             class="block text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
+                    py-3 rounded-xl transition-colors duration-200">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col">
+          <h3 class="font-bold text-xl mb-2">Enterprise</h3>
+          <div class="mb-6">
+            <span class="text-4xl font-extrabold">$299</span>
+            <span class="text-gray-400 text-sm">/mo</span>
+          </div>
+          <ul class="flex flex-col gap-3 mb-8 flex-1">
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <span class="text-indigo-500 font-bold">✓</span> Custom Features
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <span class="text-indigo-500 font-bold">✓</span> Dedicated Support
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <span class="text-indigo-500 font-bold">✓</span> SLA Agreement
+            </li>
+          </ul>
+          <a href="#contact"
+             class="block text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
+                    py-3 rounded-xl transition-colors duration-200">
+            Contact Sales
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────
+       CONTACT
+  ───────────────────────────────────────── -->
+  <section id="contact" class="py-20 px-6">
+    <div class="max-w-xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Get in Touch</h2>
+
+      <form onsubmit="handleSubmit(event)" class="flex flex-col gap-5" novalidate>
+
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700 mb-1.5">Name</label>
+          <input id="name" type="text" placeholder="Your full name" required
+                 class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm bg-gray-50
+                        placeholder-gray-400 transition-all duration-200" />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700 mb-1.5">Email</label>
+          <input id="email" type="email" placeholder="you@example.com" required
+                 class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm bg-gray-50
+                        placeholder-gray-400 transition-all duration-200" />
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium text-gray-700 mb-1.5">Message</label>
+          <textarea id="message" rows="5" placeholder="How can we help you?" required
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm bg-gray-50
+                           placeholder-gray-400 resize-none transition-all duration-200"></textarea>
+        </div>
+
+        <button type="submit"
+                class="w-full bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white
+                       font-semibold py-3.5 rounded-xl transition-all duration-200 text-sm">
+          Send Message
+        </button>
+
+        <p id="form-success" class="hidden text-center text-sm text-green-600 font-medium">
+          ✓ Message sent! We'll get back to you shortly.
+        </p>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────
+       FOOTER
+  ───────────────────────────────────────── -->
+  <footer class="bg-gray-950 text-gray-400 pt-16 pb-8 px-6">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+
+        <div class="col-span-2 md:col-span-1">
+          <p class="logo text-white font-bold text-lg mb-3">CompanyLogo</p>
+          <p class="text-sm leading-relaxed">
+            Transform your business with our cutting-edge solutions.
+          </p>
+        </div>
+
+        <div>
+          <p class="text-white font-semibold text-sm mb-4">Quick Links</p>
+          <ul class="flex flex-col gap-2.5 text-sm">
+            <li><a href="#features"     class="hover:text-white transition-colors">Features</a></li>
+            <li><a href="#testimonials" class="hover:text-white transition-colors">Testimonials</a></li>
+            <li><a href="#pricing"      class="hover:text-white transition-colors">Pricing</a></li>
+            <li><a href="#contact"      class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="text-white font-semibold text-sm mb-4">Legal</p>
+          <ul class="flex flex-col gap-2.5 text-sm">
+            <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="text-white font-semibold text-sm mb-4">Connect</p>
+          <ul class="flex flex-col gap-2.5 text-sm">
+            <li><a href="#" class="hover:text-white transition-colors">Twitter</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">LinkedIn</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Facebook</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="border-t border-gray-800 pt-6 text-center text-xs text-gray-500">
+        © 2026 CompanyLogo. All rights reserved.
+      </div>
+
+    </div>
+  </footer>
+
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name    = document.getElementById('name').value.trim();
+      const email   = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email || !message) return;
+
+      const btn = e.target.querySelector('button[type="submit"]');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        e.target.reset();
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+        const success = document.getElementById('form-success');
+        success.classList.remove('hidden');
+        setTimeout(() => success.classList.add('hidden'), 4000);
+      }, 1200);
+    }
+  </script>
+
+</body>
+</html>
